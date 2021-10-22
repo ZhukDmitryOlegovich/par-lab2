@@ -6,9 +6,32 @@ import java.util.Iterator;
 
 public class DelayReducer extends Reducer<AirportJoinKey, Text, Text, Text> {
     @Override
-    protected void reduce(AirportJoinKey key, Iterable<Text> values, Reducer<AirportJoinKey, Text, Text, Text>.Context context) throws IOException, InterruptedException {
+    protected void reduce(
+            AirportJoinKey key,
+            Iterable<Text> values,
+            Reducer<AirportJoinKey, Text, Text, Text>.Context context
+    ) throws IOException, InterruptedException {
         Iterator<Text> it = values.iterator();
+        String name = it.next().toString();
 
-        it.forEachRemaining();
+        if (!it.hasNext()) {
+            return;
+        }
+
+        float max = Float.MIN_VALUE;
+        float min = Float.MAX_VALUE;
+        float sum = 0;
+        int count = 0;
+        for (; it.hasNext(); count++) {
+            float delay = Float.parseFloat(it.next().toString());
+            max = Math.max(max, delay);
+            min = Math.max(min, delay);
+            sum += delay;
+        }
+
+        context.write(
+                new Text(name),
+                new Text(String.format("avg: %f, min: %f, max: %f", sum / count, min, max))
+        );
     }
 }
