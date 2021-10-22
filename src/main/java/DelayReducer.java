@@ -31,7 +31,7 @@ public class DelayReducer extends Reducer<AirportJoinKey, Text, Text, Text> {
 
         context.write(
                 new Text(name),
-                new Text(String.format("avg: %f, min: %f, max: %f", sum / count, min, max))
+                new Text(String.format("avg: %f, \tmin: %f, \tmax: %f", sum / count, min, max))
         );
     }
 }
