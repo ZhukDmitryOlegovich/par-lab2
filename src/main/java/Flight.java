@@ -1,6 +1,8 @@
 public class Flight {
     private final float delay;
     private final int code;
+    private static final int DELAY_CSV_INDEX = 18;
+    private static final int DELAY_CSV_INDEX = 18;
 
     public Flight(float delay, int code) {
         this.delay = delay;
