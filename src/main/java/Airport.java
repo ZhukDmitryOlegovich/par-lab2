@@ -13,6 +13,10 @@ public class Airport {
         return name;
     }
 
+    public int getCode() {
+        return code;
+    }
+
     public static Airport parseCSV(String csv) {
         String[] list = csv.replaceAll("\"", "").split(",");
         return new Airport(Integer.parseInt(list[CODE_CSV_INDEX]), list[NAME_CSV_INDEX]);
