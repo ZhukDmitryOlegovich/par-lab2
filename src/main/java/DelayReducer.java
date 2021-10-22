@@ -11,8 +11,6 @@ public class DelayReducer extends Reducer<AirportJoinKey, Text, Text, Text> {
             Iterable<Text> values,
             Reducer<AirportJoinKey, Text, Text, Text>.Context context
     ) throws IOException, InterruptedException {
-        System.err.println("wtf");
-
         Iterator<Text> it = values.iterator();
         String name = it.next().toString();
 
