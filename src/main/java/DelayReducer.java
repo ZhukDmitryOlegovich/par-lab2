@@ -25,7 +25,7 @@ public class DelayReducer extends Reducer<AirportJoinKey, Text, Text, Text> {
         for (; it.hasNext(); count++) {
             float delay = Float.parseFloat(it.next().toString());
             max = Math.max(max, delay);
-            min = Math.max(min, delay);
+            min = Math.min(min, delay);
             sum += delay;
         }
 
