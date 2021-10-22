@@ -5,7 +5,7 @@ import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class AirportApp {
+public class App {
     public static void main(String[] args) throws Exception {
         if (args.length != 3) {
             System.err.println("Usage: <CSV airports> <CSV flights> <output>");
@@ -13,7 +13,7 @@ public class AirportApp {
         }
 
         Job job = Job.getInstance();
-        job.setJarByClass(AirportApp.class);
+        job.setJarByClass(App.class);
         job.setJobName("Airport-flight join");
 
         {
