@@ -14,7 +14,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, AirportJoinKey, Te
 
         Airport airport = Airport.parseCSV(value.toString());
         context.write(
-                new AirportJoinKey(airport.getCode(), false),
+                new AirportJoinKey(airport.getCode(), true),
                 new Text(airport.getName())
         );
     }
