@@ -12,7 +12,6 @@ public class DelayReducer extends Reducer<AirportJoinKey, Text, Text, Text> {
             Reducer<AirportJoinKey, Text, Text, Text>.Context context
     ) throws IOException, InterruptedException {
         context.write(new Text("1"), new Text("2"));
-        return;
 
 //        Iterator<Text> it = values.iterator();
 //        String name = it.next().toString();
