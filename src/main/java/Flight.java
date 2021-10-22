@@ -9,6 +9,10 @@ public class Flight {
         this.delay = delay;
     }
 
+    public float getDelay() {
+        return delay;
+    }
+
     public static Flight parseCSV(String csv) {
         String[] list = csv.replaceAll("\"", "").split(",");
         return new Flight(
