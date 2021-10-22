@@ -1,3 +1,4 @@
+#sudo /etc/init.d/ssh restart
 #
 #rm -rf ~/hdata/namenode ~/hdata/datanode
 #hdfs namenode -format
