@@ -11,6 +11,7 @@ public class WordCountApp {
             System.err.println("Usage: WordCountApp <input path> <output path>");
             System.exit(-1);
         }
+        
 
         Job job = Job.getInstance();
         job.setJarByClass(WordCountApp.class);
