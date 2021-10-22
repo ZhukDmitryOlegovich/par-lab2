@@ -1,4 +1,5 @@
 #
+#rm -rf ~/hdata/namenode ~/hdata/datanode
 #hdfs namenode -format
 #start-dfs.sh
 #start-yarn.sh
