@@ -2,7 +2,7 @@ public class Airport {
     private final int code;
     private final String name;
     private static final int CODE_CSV_INDEX = 0;
-    private static final int NAME_CSV_INDEX = 0;
+    private static final int NAME_CSV_INDEX = 1;
 
     Airport(int code, String name) {
         this.code = code;
