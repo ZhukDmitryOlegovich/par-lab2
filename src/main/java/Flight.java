@@ -18,10 +18,11 @@ public class Flight {
     }
 
     public static Flight parseCSV(String csv) {
-        String[] list = csv.replaceAll("\"", "").split(",");
-        return new Flight(
-                Integer.parseInt(list[DEST_AIRPORT_ID_CSV_INDEX]),
-                list[DELAY_CSV_INDEX].length() > 0 ? Float.parseFloat(list[DELAY_CSV_INDEX]) : 0
-        );
+//        String[] list = csv.replaceAll("\"", "").split(",");
+//        return new Flight(
+//                Integer.parseInt(list[DEST_AIRPORT_ID_CSV_INDEX]),
+//                list[DELAY_CSV_INDEX].length() > 0 ? Float.parseFloat(list[DELAY_CSV_INDEX]) : 0
+//        );
+        return new Flight(10, 10);
     }
 }

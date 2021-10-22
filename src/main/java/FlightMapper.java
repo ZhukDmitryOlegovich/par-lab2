@@ -8,16 +8,20 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirportJoinKey, Tex
     @Override
     protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, AirportJoinKey, Text>.Context context)
             throws IOException, InterruptedException {
-        if (key.get() == 0) {
-            return;
-        }
-
-        Flight flight = Flight.parseCSV(value.toString());
-        if (flight.getCode() > 0) {
-            context.write(
-                    new AirportJoinKey(flight.getCode(), false),
-                    new Text(String.valueOf(flight.getDelay()))
-            );
-        }
+//        if (key.get() == 0) {
+//            return;
+//        }
+//
+//        Flight flight = Flight.parseCSV(value.toString());
+//        if (flight.getCode() > 0) {
+//            context.write(
+//                    new AirportJoinKey(flight.getCode(), false),
+//                    new Text(String.valueOf(flight.getDelay()))
+//            );
+//        }
+        context.write(
+                new AirportJoinKey(10, false),
+                new Text(String.valueOf(10))
+        );
     }
 }
