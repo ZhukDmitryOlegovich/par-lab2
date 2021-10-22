@@ -8,6 +8,7 @@ public class Airport {
     }
 
     public static Airport parseCSV(String csv) {
-        String[] list = csv.split()
+        String[] list = csv.split(",");
+        String 
     }
 }
