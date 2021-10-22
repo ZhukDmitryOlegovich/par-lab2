@@ -7,11 +7,11 @@ import java.io.IOException;
 
 public class AirportJoinKey implements WritableComparable<AirportJoinKey> {
     private int airportId;
-    private boolean isAirport;
+    private boolean isFlight;
 
-    AirportJoinKey(int airportId, boolean isAirport) {
+    AirportJoinKey(int airportId, boolean isFlight) {
         this.airportId = airportId;
-        this.isAirport = isAirport;
+        this.isFlight = isFlight;
     }
 
     AirportJoinKey() {}
@@ -23,19 +23,19 @@ public class AirportJoinKey implements WritableComparable<AirportJoinKey> {
     @Override
     public void write(DataOutput dataOutput) throws IOException {
         dataOutput.writeInt(airportId);
-        dataOutput.writeBoolean(isAirport);
+        dataOutput.writeBoolean(isFlight);
     }
 
     @Override
     public void readFields(DataInput dataInput) throws IOException {
         airportId = dataInput.readInt();
-        isAirport = dataInput.readBoolean();
+        isFlight = dataInput.readBoolean();
     }
 
     @Override
     public int compareTo(@NonNull AirportJoinKey o) {
         return airportId != o.airportId
                 ? airportId - o.airportId
-                : Boolean.compare(isAirport, o.isAirport);
+                : Boolean.compare(isFlight, o.isFlight);
     }
 }
