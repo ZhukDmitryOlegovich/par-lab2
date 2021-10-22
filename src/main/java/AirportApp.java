@@ -7,7 +7,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class AirportApp {
     public static void main(String[] args) throws Exception {
-        if (args.length != 2) {
+        if (args.length != 3) {
             System.err.println("Usage: <CSV airports> <CSV flights> <output>");
             System.exit(-1);
         }
