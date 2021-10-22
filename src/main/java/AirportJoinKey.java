@@ -34,8 +34,9 @@ public class AirportJoinKey implements WritableComparable<AirportJoinKey> {
 
     @Override
     public int compareTo(@NonNull AirportJoinKey o) {
-        return airportId != o.airportId
-                ? airportId - o.airportId
-                : Boolean.compare(isAirport, o.isAirport);
+        return 1;
+//        return airportId != o.airportId
+//                ? airportId - o.airportId
+//                : Boolean.compare(isAirport, o.isAirport);
     }
 }
