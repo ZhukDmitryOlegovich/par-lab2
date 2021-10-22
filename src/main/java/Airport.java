@@ -18,7 +18,7 @@ public class Airport {
     }
 
     public static Airport parseCSV(String csv) {
-        String[] list = csv.replaceAll("\"", "").split(",");
+        String[] list = csv.replaceAll("\"", "").split(",", 2);
         return new Airport(Integer.parseInt(list[CODE_CSV_INDEX]), list[NAME_CSV_INDEX]);
     }
 }
