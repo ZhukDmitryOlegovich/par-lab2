@@ -13,7 +13,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirportJoinKey, Tex
         }
 
         Flight flight = Flight.parseCSV(value.toString());
-        if (flight.getCode() > 0) {
+        if (flight.getDelay() > 0) {
             context.write(
                     new AirportJoinKey(flight.getCode(), false),
                     new Text(String.valueOf(flight.getDelay()))
