@@ -9,6 +9,7 @@ public class Airport {
 
     public static Airport parseCSV(String csv) {
         String[] list = csv.split(",");
-        String 
+        String name = list[1].substring(1, list[1].length() - 1);
+        String code = list[1].substring(1, list[1].length() - 1);
     }
 }
