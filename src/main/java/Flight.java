@@ -18,7 +18,7 @@ public class Flight {
     }
 
     public static Flight parseCSV(String csv) {
-        String[] list = csv.replaceAll("\"", "").split(",");
+        String[] list = csv.split(",", 1);
         return new Flight(
                 Integer.parseInt(list[DEST_AIRPORT_ID_CSV_INDEX]),
                 list[DELAY_CSV_INDEX].length() > 0 ? Float.parseFloat(list[DELAY_CSV_INDEX]) : 0
