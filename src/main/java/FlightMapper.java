@@ -8,9 +8,9 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirportJoinKey, Tex
     @Override
     protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, AirportJoinKey, Text>.Context context)
             throws IOException, InterruptedException {
-//        if (key.get() == 0) {
-//            return;
-//        }
+        if (key.get() == 0) {
+            return;
+        }
 
         Flight flight = Flight.parseCSV(value.toString());
         if (flight.getCode() > 0) {
