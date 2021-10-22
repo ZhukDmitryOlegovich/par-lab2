@@ -13,6 +13,10 @@ public class Flight {
         return delay;
     }
 
+    public int getCode() {
+        return code;
+    }
+
     public static Flight parseCSV(String csv) {
         String[] list = csv.replaceAll("\"", "").split(",");
         return new Flight(

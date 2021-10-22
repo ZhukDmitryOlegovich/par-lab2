@@ -12,10 +12,12 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirportJoinKey, Tex
             return;
         }
 
-        Airport airport = Airport.parseCSV(value.toString());
-        context.write(
-                new AirportJoinKey(airport.getCode(), true),
-                new Text(airport.getName())
-        );
+        Flight flight = Flight.parseCSV(value.toString());
+        if (flight.getCode() > 0) {
+            context.write(
+                    new AirportJoinKey(flight.getCode(), false),
+                    new Text(String.valueOf(flight.getDelay()))
+            );
+        }
     }
 }
