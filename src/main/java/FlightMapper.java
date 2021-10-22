@@ -15,7 +15,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirportJoinKey, Tex
         Flight flight = Flight.parseCSV(value.toString());
         if (flight.getDelay() > 0) {
             context.write(
-                    new AirportJoinKey(flight.getCode(), false),
+                    new AirportJoinKey(flight.getCode(), true),
                     new Text(String.valueOf(flight.getDelay()))
             );
         }
