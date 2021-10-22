@@ -11,29 +11,27 @@ public class DelayReducer extends Reducer<AirportJoinKey, Text, Text, Text> {
             Iterable<Text> values,
             Reducer<AirportJoinKey, Text, Text, Text>.Context context
     ) throws IOException, InterruptedException {
-        context.write(new Text("1"), new Text("2"));
+        Iterator<Text> it = values.iterator();
+        String name = it.next().toString();
 
-//        Iterator<Text> it = values.iterator();
-//        String name = it.next().toString();
-//
-//        if (!it.hasNext()) {
-//            return;
-//        }
-//
-//        float max = Float.MIN_VALUE;
-//        float min = Float.MAX_VALUE;
-//        float sum = 0;
-//        int count = 0;
-//        for (; it.hasNext(); count++) {
-//            float delay = Float.parseFloat(it.next().toString());
-//            max = Math.max(max, delay);
-//            min = Math.max(min, delay);
-//            sum += delay;
-//        }
-//
-//        context.write(
-//                new Text(name),
-//                new Text(String.format("avg: %f, min: %f, max: %f", sum / count, min, max))
-//        );
+        if (!it.hasNext()) {
+            return;
+        }
+
+        float max = Float.MIN_VALUE;
+        float min = Float.MAX_VALUE;
+        float sum = 0;
+        int count = 0;
+        for (; it.hasNext(); count++) {
+            float delay = Float.parseFloat(it.next().toString());
+            max = Math.max(max, delay);
+            min = Math.max(min, delay);
+            sum += delay;
+        }
+
+        context.write(
+                new Text(name),
+                new Text(String.format("avg: %f, min: %f, max: %f", sum / count, min, max))
+        );
     }
 }
