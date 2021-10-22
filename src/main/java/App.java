@@ -27,12 +27,14 @@ public class App {
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
 
-        job.setMapOutputKeyClass(AirportJoinKey.class);
-        job.setMapOutputValueClass(Text.class);
+        {
+            job.setMapOutputKeyClass(AirportJoinKey.class);
+            job.setMapOutputValueClass(Text.class);
 
-//        job.setOutputKeyClass(Text.class);
-//        job.setOutputValueClass(IntWritable.class);
-//        job.setNumReduceTasks(2);
+            job.setOutputKeyClass(Text.class);
+            job.setOutputValueClass(Text.class);
+            job.setNumReduceTasks(2);
+        }
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
