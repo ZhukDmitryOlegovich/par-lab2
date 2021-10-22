@@ -1,5 +1,5 @@
-#hadoop fs -put ./L_AIRPORT_ID.csv
-#hadoop fs -put ./664600583_T_ONTIME_sample.csv
+#start-dfs.sh
+#start-yarn.sh
 #hadoop fs -put ./L_AIRPORT_ID.csv
 #hadoop fs -put ./664600583_T_ONTIME_sample.csv
 mvn package
