@@ -1,3 +1,4 @@
+import edu.umd.cs.findbugs.annotations.NonNull;
 import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
@@ -30,7 +31,7 @@ public class AirportJoinKey implements WritableComparable<AirportJoinKey> {
     }
 
     @Override
-    public int compareTo(AirportJoinKey o) {
+    public int compareTo(@NonNull AirportJoinKey o) {
         return airportId != o.airportId
                 ? airportId - o.airportId
                 : Boolean.compare(isAirport, o.isAirport);
