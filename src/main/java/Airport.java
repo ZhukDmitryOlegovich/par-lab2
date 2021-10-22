@@ -1,6 +1,8 @@
 public class Airport {
-    private int code;
-    private String name;
+    private final int code;
+    private final String name;
+    private static final int CODE_CSV_INDEX = 0;
+    private static final int NAME_CSV_INDEX = 0;
 
     Airport(int code, String name) {
         this.code = code;
@@ -8,8 +10,7 @@ public class Airport {
     }
 
     public static Airport parseCSV(String csv) {
-        String[] list = csv.split(",");
-        String name = list[1].substring(1, list[1].length() - 1);
-        String code = list[1].substring(1, list[1].length() - 1);
+        String[] list = csv.replaceAll("\"", "").split(",");
+        return new Airport(Integer.parseInt(list[CODE_CSV_INDEX]), list[NAME_CSV_INDEX]);
     }
 }
