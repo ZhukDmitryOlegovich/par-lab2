@@ -14,7 +14,8 @@ public class AirportJoinKey implements WritableComparable<AirportJoinKey> {
         this.isFlight = isFlight;
     }
 
-    AirportJoinKey() {}
+    AirportJoinKey() {
+    }
 
     public int getAirportId() {
         return airportId;
